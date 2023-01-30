@@ -30,8 +30,12 @@ c9.addEventListener("click", function() {uncover(9);});
 c10.addEventListener("click", function() {uncover(10);});
 c11.addEventListener("click", function() {uncover(11);});
 
+const firstVisible = false;
+const turn = 0;
+
 function uncover(nr) {
-    alert(nr);
+    var image = "url(image/"+cards[nr]+")";
+    $('#c'+nr).css('background-image', image);
 }
 
 /* const card = document.querySelectorAll('.card');
