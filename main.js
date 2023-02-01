@@ -28,6 +28,7 @@ c11.addEventListener("click", function() {uncover(11);});
 
 var firstVisible = false;
 var turn = 0;
+var firstVisibleNr;
 
 function uncover(nr) {
     var image = "url(image/"+cards[nr]+")";
@@ -37,12 +38,24 @@ function uncover(nr) {
 
     if(firstVisible == false) {
         firstVisible = true;
+        firstVisibleNr = nr;
     }
     else {
+        if(cards[firstVisibleNr] == cards[nr]) {
+            hidepair(nr, firstVisibleNr);
+        }
+        else {
+
+        }
         turn++;
         $('.score').html('Turns: '+turn);
         firstVisible = false;
     }
+}
+
+function hidepair(nr1, nr2) {
+    $('#c'+nr1).css('opacity', '0');
+    $('#c'+nr2).css('opacity', '0');
 }
 
 /* const card = document.querySelectorAll('.card');
