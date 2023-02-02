@@ -31,25 +31,29 @@ var turn = 0;
 var firstVisibleNr;
 
 function uncover(nr) {
-    var image = "url(image/"+cards[nr]+")";
-    $('#c'+nr).css('background-image', image);
-    $('#c'+nr).addClass('uncoverCard');
-    $('#c'+nr).removeClass('card');
+    var opacity = $('#c'+nr).css('opacity');
+    if(opacity != 0) {
+        var image = "url(image/"+cards[nr]+")";
 
-    if(firstVisible == false) {
-        firstVisible = true;
-        firstVisibleNr = nr;
-    }
-    else {
-        if(cards[firstVisibleNr] == cards[nr]) {
-            hidepair(nr, firstVisibleNr);
+        $('#c'+nr).css('background-image', image);
+        $('#c'+nr).addClass('uncoverCard');
+        $('#c'+nr).removeClass('card');
+
+        if(firstVisible == false) {
+            firstVisible = true;
+            firstVisibleNr = nr;
         }
         else {
+            if(cards[firstVisibleNr] == cards[nr]) {
+            hidepair(nr, firstVisibleNr);
+            }
+            else {
 
+            }
+            turn++;
+            $('.score').html('Turns: '+turn);
+            firstVisible = false;
         }
-        turn++;
-        $('.score').html('Turns: '+turn);
-        firstVisible = false;
     }
 }
 
