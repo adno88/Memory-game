@@ -45,10 +45,10 @@ function uncover(nr) {
         }
         else {
             if(cards[firstVisibleNr] == cards[nr]) {
-            hidepair(nr, firstVisibleNr);
+                hidepair(nr, firstVisibleNr);
             }
             else {
-
+                setTimeout(function() {restoreCards(nr, firstVisibleNr)}, 1000);
             }
             turn++;
             $('.score').html('Turns: '+turn);
@@ -62,6 +62,15 @@ function hidepair(nr1, nr2) {
     $('#c'+nr2).css('opacity', '0');
 }
 
+function restoreCards(nr1, nr2) {
+    $('#c'+nr1).css('background-image', 'url(image/reverse.jpg)');
+    $('#c'+nr1).addClass('card');
+    $('#c'+nr1).removeClass('uncoverCard');
+
+    $('#c'+nr2).css('background-image', 'url(image/reverse.jpg)');
+    $('#c'+nr2).addClass('card');
+    $('#c'+nr2).removeClass('uncoverCard');
+}
 /* const card = document.querySelectorAll('.card');
 
 function uncover() {
