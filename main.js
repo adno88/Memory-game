@@ -30,6 +30,7 @@ var firstVisible = false;
 var turn = 0;
 var firstVisibleNr;
 var block = false;
+var pairsLeft = 6;
 
 function uncover(nr) {
     var opacity = $('#c'+nr).css('opacity');
@@ -64,6 +65,14 @@ function uncover(nr) {
 function hidepair(nr1, nr2) {
     $('#c'+nr1).css('opacity', '0');
     $('#c'+nr2).css('opacity', '0');
+    
+    pairsLeft--;
+
+    if(pairsLeft == 0)
+    {
+        $('.board').html('<h2>You Won! Finished in '+turn+' turns</h2>');
+    }
+
     block = false;
 }
 
