@@ -29,10 +29,13 @@ c11.addEventListener("click", function() {uncover(11);});
 var firstVisible = false;
 var turn = 0;
 var firstVisibleNr;
+var block = false;
 
 function uncover(nr) {
     var opacity = $('#c'+nr).css('opacity');
-    if(opacity != 0) {
+    if(opacity != 0 && block == false) {
+
+        block = true;
         var image = "url(image/"+cards[nr]+")";
 
         $('#c'+nr).css('background-image', image);
@@ -42,6 +45,7 @@ function uncover(nr) {
         if(firstVisible == false) {
             firstVisible = true;
             firstVisibleNr = nr;
+            block = false;
         }
         else {
             if(cards[firstVisibleNr] == cards[nr]) {
@@ -60,6 +64,7 @@ function uncover(nr) {
 function hidepair(nr1, nr2) {
     $('#c'+nr1).css('opacity', '0');
     $('#c'+nr2).css('opacity', '0');
+    block = false;
 }
 
 function restoreCards(nr1, nr2) {
@@ -70,6 +75,7 @@ function restoreCards(nr1, nr2) {
     $('#c'+nr2).css('background-image', 'url(image/reverse.jpg)');
     $('#c'+nr2).addClass('card');
     $('#c'+nr2).removeClass('uncoverCard');
+    block = false;
 }
 /* const card = document.querySelectorAll('.card');
 
