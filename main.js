@@ -1,5 +1,11 @@
 const cards = ["eagle.jpg", "elephant.jpg", "lion.jpg", "panther.jpg", "parrot.jpg", "shark.jpg", "eagle.jpg", "elephant.jpg", "lion.jpg", "panther.jpg", "parrot.jpg", "shark.jpg"];
 
+let card = document.querySelectorAll('card');
+card = [...card];
+
+
+
+/*
 const c0 = document.getElementById('c0');
 const c1 = document.getElementById('c1');
 const c2 = document.getElementById('c2');
@@ -25,7 +31,7 @@ c8.addEventListener("click", function() {uncover(8);});
 c9.addEventListener("click", function() {uncover(9);});
 c10.addEventListener("click", function() {uncover(10);});
 c11.addEventListener("click", function() {uncover(11);});
-
+*/
 var firstVisible = false;
 var turn = 0;
 var firstVisibleNr;
@@ -86,15 +92,3 @@ function restoreCards(nr1, nr2) {
     $('#c'+nr2).removeClass('uncoverCard');
     block = false;
 }
-/* const card = document.querySelectorAll('.card');
-
-function uncover() {
-    show = this.textContent;
-    alert(show);
-}
-
-card.forEach((nr) => {
-    nr.addEventListener('click', uncover)
-})
-*/
-
