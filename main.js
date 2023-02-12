@@ -3,8 +3,14 @@ const cards = ["eagle.jpg", "elephant.jpg", "lion.jpg", "panther.jpg", "parrot.j
 let card = document.querySelectorAll('card');
 card = [...card];
 
+const init = fuction(){
+    card.forEach(function(i) {
+        const position = Math.floor(Math.random()*cards.length);
+        i.classList.add(cards[position]);
+    })
+}
 
-
+init()
 /*
 const c0 = document.getElementById('c0');
 const c1 = document.getElementById('c1');
