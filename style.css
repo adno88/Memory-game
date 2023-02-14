@@ -85,4 +85,11 @@ h2 {
         flex-wrap: wrap;
         justify-content: center;
     }
+    article {
+        position: relative;
+    }
+    .score {
+        position: absolute;
+        top: -60px;
+    }
 }
